@@ -212,7 +212,7 @@ export default function ChatInterface() {
         <textarea
           value={input}
           onChange={(e) => setInput(e.target.value)}
-          placeholder="Get copy help or upload an image..."
+          placeholder="Get copy help"
           className="flex-1 p-3 border border-gray-300 dark:border-gray-700 rounded-4xl focus:outline-none focus:ring-2 focus:ring-[#563F8E] resize-none min-h-[44px] max-h-40 text-black dark:text-white dark:bg-gray-900 bg-white"
           disabled={isLoading}
           rows={1}
