@@ -144,7 +144,7 @@ export default function ChatInterface() {
   return (
     <div className="flex flex-col h-screen max-w-4xl mx-auto p-4">
       <div
-        className={`flex-1 overflow-y-auto mb-4 flex flex-col space-y-2 px-4 pr-8 ${dragActive ? 'ring-4 ring-[#563F8E]/30' : ''}`}
+        className={`flex-1 overflow-y-auto mb-4 flex flex-col space-y-2 px-4 pr-8 ${dragActive ? 'ring-4 ring-[#563F8E]/30 dark:ring-[#563F8E]/50' : ''}`}
         onDrop={handleDrop}
         onDragOver={handleDragOver}
         onDragLeave={handleDragLeave}
@@ -158,14 +158,14 @@ export default function ChatInterface() {
               <img
                 src={message.imageUrl}
                 alt="Uploaded"
-                className="max-w-xs max-h-60 rounded-4xl border border-gray-200 shadow"
+                className="max-w-xs max-h-60 rounded-4xl border border-gray-200 dark:border-gray-700 shadow"
               />
             ) : (
               <div
-                className={`max-w-[80%] rounded-4xl p-4 whitespace-pre-line ${
+                className={`max-w-[80%] rounded-4xl p-6 whitespace-pre-line ${
                   message.role === 'user'
                     ? 'bg-[#563F8E] text-white'
-                    : 'bg-gray-100 text-gray-800'
+                    : 'bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-100'
                 } markdown-tight`}
               >
                 {message.content}
@@ -175,11 +175,11 @@ export default function ChatInterface() {
         ))}
         {isLoading && (
           <div className="flex justify-start animate-chat-pop-in">
-            <div className="bg-gray-100 text-gray-800 rounded-4xl p-4">
+            <div className="bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-100 rounded-4xl p-6">
               <div className="flex items-center space-x-2">
-                <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" />
-                <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce delay-100" />
-                <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce delay-200" />
+                <div className="w-2 h-2 bg-gray-400 dark:bg-gray-500 rounded-full animate-bounce" />
+                <div className="w-2 h-2 bg-gray-400 dark:bg-gray-500 rounded-full animate-bounce delay-100" />
+                <div className="w-2 h-2 bg-gray-400 dark:bg-gray-500 rounded-full animate-bounce delay-200" />
               </div>
             </div>
           </div>
@@ -187,7 +187,7 @@ export default function ChatInterface() {
         <div ref={messagesEndRef} />
       </div>
       {error && (
-        <div className="text-red-500 mb-2 p-2 bg-red-50 rounded-4xl animate-chat-pop-in">
+        <div className="text-red-500 dark:text-red-400 mb-2 p-2 bg-red-50 dark:bg-red-900/40 rounded-4xl animate-chat-pop-in">
           {error}
         </div>
       )}
@@ -195,7 +195,7 @@ export default function ChatInterface() {
         <button
           type="button"
           onClick={() => fileInputRef.current?.click()}
-          className="p-2 rounded-4xl border border-gray-200 bg-gray-50 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-[#563F8E]"
+          className="p-2 rounded-4xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-[#563F8E]"
           aria-label="Upload image"
         >
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 text-[#563F8E]">
@@ -212,8 +212,8 @@ export default function ChatInterface() {
         <textarea
           value={input}
           onChange={(e) => setInput(e.target.value)}
-          placeholder="Request copywriting help or upload an image"
-          className="flex-1 p-3 border border-gray-300 rounded-4xl focus:outline-none focus:ring-2 focus:ring-[#563F8E] resize-none min-h-[44px] max-h-40 text-black"
+          placeholder="Get copy help or upload an image..."
+          className="flex-1 p-3 border border-gray-300 dark:border-gray-700 rounded-4xl focus:outline-none focus:ring-2 focus:ring-[#563F8E] resize-none min-h-[44px] max-h-40 text-black dark:text-white dark:bg-gray-900 bg-white"
           disabled={isLoading}
           rows={1}
           onKeyDown={(e) => {
