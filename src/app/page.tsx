@@ -33,7 +33,7 @@ export default function Home() {
 
   if (!authed) {
     return (
-      <main className="min-h-screen flex items-center justify-center bg-white dark:bg-black">
+      <main className="min-h-screen flex items-center justify-center bg-white dark:bg-black pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)] pl-[env(safe-area-inset-left)] pr-[env(safe-area-inset-right)]">
         <form onSubmit={handleSubmit} className="bg-white text-gray-900 dark:bg-gray-900 dark:text-white p-8 rounded-2xl shadow-lg flex flex-col gap-4 min-w-[320px]">
           <div className="text-lg font-semibold mb-2">Password Required</div>
           <div className="text-sm mb-4">Reach out to Design Team to get a password.</div>
@@ -53,7 +53,7 @@ export default function Home() {
   }
 
   return (
-    <main className="min-h-screen bg-white dark:bg-black">
+    <main className="min-h-screen bg-white dark:bg-black pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)] pl-[env(safe-area-inset-left)] pr-[env(safe-area-inset-right)]">
       <ChatInterface />
     </main>
   );

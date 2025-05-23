@@ -191,7 +191,7 @@ export default function ChatInterface() {
           {error}
         </div>
       )}
-      <form onSubmit={handleSubmit} className="flex gap-2 items-center">
+      <form onSubmit={handleSubmit} className="flex gap-2 items-center pb-[env(safe-area-inset-bottom)]">
         <button
           type="button"
           onClick={() => fileInputRef.current?.click()}
